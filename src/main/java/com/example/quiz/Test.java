@@ -9,13 +9,12 @@ import java.util.List;
 //do stworzenia tabelki w mysql
 @Entity
 
-
     public class Test {
     private String name;
 
 //mappedBy="test'. jest jest dlatego, bo stronie Question (private Test) jest test, czyli odnosi sie do drugiej klasy, jakby tam byla dupa, bylaby dupa i tu
 //czyli nazwa klucza po drugiej stronie
-    @OneToMany(mappedBy = "test")
+    @OneToMany(mappedBy = "test",cascade = CascadeType.ALL )   //sprawia, ze test, zaczyna podmieniac i dawac odpowiedz
     //czytamy : one to many Test ma jedno do wielu pytan, a w drugiej stronie Question, dajemy ManyToOne, zeby sie laczyly  i implementowaly wzgledem siebie
     private List<Question> questionList = new ArrayList <>();
 
@@ -36,7 +35,10 @@ import java.util.List;
     public Test(){}
 
 
-
+    public void addQuestion(Question question){
+        question.setTest(this);  //od razu automatycznie ustawi pole test na zmienna test z SpringExample @override
+        questionList.add(question);
+    }
 
 
     public Test(List<Question> questionList) {
