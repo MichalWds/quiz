@@ -1,4 +1,6 @@
-package com.example.quiz;
+package com.example.quiz.model;
+
+import com.example.quiz.model.Question;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -64,4 +66,5 @@ import java.util.List;
     public void setName(String name) {
         this.name = name;
     }
+
 }

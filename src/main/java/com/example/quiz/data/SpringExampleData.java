@@ -1,8 +1,8 @@
 package com.example.quiz.data;
 
 
-import com.example.quiz.Question;
-import com.example.quiz.Test;
+import com.example.quiz.model.Question;
+import com.example.quiz.model.Test;
 import com.example.quiz.repositiory.TestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
